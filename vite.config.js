@@ -1,0 +1,50 @@
+import { fileURLToPath, URL } from 'node:url'
+import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
+import vue from '@vitejs/plugin-vue'
+import UnoCSS from 'unocss/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  plugins: [
+    vue({
+      template: { transformAssetUrls },
+    }),
+    quasar({
+      sassVariables: false,
+    }),
+    UnoCSS(),
+    AutoImport({
+      imports: [
+        'vue',
+        'vue-router',
+        'pinia',
+        '@vueuse/core',
+      ],
+      dirs: [
+        './src/composables',
+        './src/stores',
+      ],
+      vueTemplate: true,
+      dts: 'src/auto-imports.d.ts',
+    }),
+    Components({
+      dirs: ['src/components', 'src/layouts'],
+      dts: 'src/components.d.ts',
+    }),
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+  server: {
+    port: 9527,
+  },
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ['./src/test/setup.js'],
+  },
+})
