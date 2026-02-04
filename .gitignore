@@ -30,3 +30,6 @@ coverage
 public/mockServiceWorker.js
 package-lock.json
 bash-command-log.txt
+
+# Claude Code
+.claude/
