@@ -1,5 +1,10 @@
 <script setup>
-// 使用 auto-import，不需手動 import
+// 初始化主題
+const themeStore = useThemeStore()
+
+onMounted(() => {
+  themeStore.initTheme()
+})
 </script>
 
 <template>
@@ -11,7 +16,8 @@ html, body, #app {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-color: #011e16;
-  color: #00da9b;
+  background-color: var(--color-sys-background, #011e16);
+  color: var(--color-textPrimary, #00da9b);
+  transition: background-color 0.3s, color 0.3s;
 }
 </style>

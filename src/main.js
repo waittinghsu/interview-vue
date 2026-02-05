@@ -11,6 +11,9 @@ import 'quasar/src/css/index.sass'
 // UnoCSS
 import 'virtual:uno.css'
 
+// CSS 變數宣告（供 IDE 識別）
+import './assets/css/variables.css'
+
 async function bootstrap() {
   // 開發環境啟用 MSW
   if (import.meta.env.DEV) {

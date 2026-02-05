@@ -3,23 +3,34 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: () => import('@/pages/HomePage.vue'),
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import('@/pages/AboutPage.vue'),
-  },
-  {
-    path: '/seat-grid',
-    name: 'SeatGrid',
-    component: () => import('@/pages/SeatGridPage.vue'),
-  },
-  {
-    path: '/seat-rotate',
-    name: 'SeatRotate',
-    component: () => import('@/pages/SeatRotatePage.vue'),
+    component: () => import('@/layouts/DefaultLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Home',
+        component: () => import('@/pages/HomePage.vue'),
+      },
+      {
+        path: 'about',
+        name: 'About',
+        component: () => import('@/pages/AboutPage.vue'),
+      },
+      {
+        path: 'seat-grid',
+        name: 'SeatGrid',
+        component: () => import('@/pages/SeatGridPage.vue'),
+      },
+      {
+        path: 'seat-rotate',
+        name: 'SeatRotate',
+        component: () => import('@/pages/SeatRotatePage.vue'),
+      },
+      {
+        path: 'tic-tac-toe',
+        name: 'TicTacToe',
+        component: () => import('@/pages/TicTacToePage.vue'),
+      },
+    ],
   },
   {
     path: '/:pathMatch(.*)*',
