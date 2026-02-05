@@ -17,6 +17,7 @@
     "@quasar/extras": "^1.16.0",
     "@vueuse/core": "^14.1.0",
     "axios": "^1.7.0",
+    "lightweight-charts": "^5.1.0",
     "pinia": "^2.2.0",
     "quasar": "^2.16.0",
     "vue": "^3.4.0",

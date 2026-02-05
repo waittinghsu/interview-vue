@@ -30,6 +30,11 @@ const routes = [
         name: 'TicTacToe',
         component: () => import('@/pages/TicTacToePage.vue'),
       },
+      {
+        path: 'chart',
+        name: 'Chart',
+        component: () => import('@/pages/ChartPage.vue'),
+      },
     ],
   },
   {

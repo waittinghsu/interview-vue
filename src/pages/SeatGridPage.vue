@@ -1,5 +1,5 @@
 <script setup>
-const seats = ref([1, 0, 0, 0, 1, 0, 1])
+const seats = ref([1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1])
 const selectedSeat = ref(null)
 const result = ref(null)
 

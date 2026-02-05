@@ -54,7 +54,7 @@ const gridItems = ref([
   { id: 2, color: 'bg-gradient-to-br from-orange-400 to-orange-600', label: '座位輪盤', routeName: 'SeatRotate' },
   { id: 3, color: 'bg-gradient-to-br from-green-400 to-green-600', label: '關於我們', routeName: 'About' },
   { id: 4, color: 'bg-gradient-to-br from-blue-400 to-blue-600', label: '圈圈叉叉', routeName: 'TicTacToe' },
-  { id: 5, color: 'bg-gradient-to-br from-purple-400 to-purple-600', label: '功能二', routeName: 'Home' },
+  { id: 5, color: 'bg-gradient-to-br from-purple-400 to-purple-600', label: '股票圖表', routeName: 'Chart' },
   { id: 6, color: 'bg-gradient-to-br from-pink-400 to-pink-600', label: '功能三', routeName: 'Home' },
   { id: 7, color: 'bg-gradient-to-br from-cyan-400 to-cyan-600', label: '功能四', routeName: 'Home' },
   { id: 8, color: 'bg-gradient-to-br from-amber-400 to-amber-600', label: '功能五', routeName: 'Home' },
