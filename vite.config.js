@@ -42,6 +42,15 @@ export default defineConfig({
   server: {
     port: 9527,
   },
+  build: {
+    // 生產環境保留 console（使用 esbuild）
+    minify: 'esbuild',
+    // esbuild 預設不會移除 console，無需額外配置
+  },
+  esbuild: {
+    // 確保生產環境保留 console 和 debugger
+    drop: [], // 不移除任何語句
+  },
   test: {
     environment: 'jsdom',
     globals: true,
