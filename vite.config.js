@@ -1,3 +1,4 @@
+import { execSync } from 'node:child_process'
 import { fileURLToPath, URL } from 'node:url'
 import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 import vue from '@vitejs/plugin-vue'
@@ -5,6 +6,16 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
+
+// 獲取 git commit hash
+function getGitCommitHash() {
+  try {
+    return execSync('git rev-parse --short HEAD').toString().trim()
+  }
+  catch {
+    return 'unknown'
+  }
+}
 
 export default defineConfig({
   plugins: [
@@ -33,6 +44,17 @@ export default defineConfig({
       dirs: ['src/components', 'src/layouts'],
       dts: 'src/components.d.ts',
     }),
+    // 自定義插件：注入 git commit hash 到 HTML meta
+    {
+      name: 'html-transform',
+      transformIndexHtml(html) {
+        const gitCommitHash = getGitCommitHash()
+        return html.replace(
+          '</head>',
+          `    <meta name="git-commit-hash" content="${gitCommitHash}">\n  </head>`,
+        )
+      },
+    },
   ],
   resolve: {
     alias: {
